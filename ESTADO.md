@@ -53,8 +53,15 @@ node scripts/atualizar-catalogo.js --dry-run  # simulação
 
 - Servidor de desenvolvimento rodando em segundo plano:
   `node scripts/servidor.js 8000` (PID 58270, sem cache).
-- A pasta **não é um repositório git**.
-- `.env` existe com `YOUTUBE_API_KEY` e permissão `600` (ignorado pelo `.gitignore`).
+- Repositório público: <https://github.com/silotto/matine>
+  - Branch `main`, remoto `origin` (HTTPS).
+  - **GitHub Pages ativo** (branch `main`, raiz): <https://silotto.github.io/matine/>
+  - Publicado em 18/11/2026; build do Pages concluído com sucesso.
+- `GitHub CLI 2.105.0` instalado sem sudo em `~/.local/opt/gh`, link em `~/.local/bin/gh`.
+- Identidade local do git: `Silotto <5083814+silotto@users.noreply.github.com>`.
+- `.env` existe com `YOUTUBE_API_KEY` e permissão `600` (ignorado pelo `.gitignore` e
+  confirmado ausente do repositório e do site publicado).
+- `catalogo.json` **é versionado** (necessário para o Pages): contém só metadados públicos, sem a chave.
 
 ## Pendências / próximos passos
 
@@ -63,8 +70,11 @@ node scripts/atualizar-catalogo.js --dry-run  # simulação
 2. **Visualizações semanais reais** — hoje o carrossel usa views/dia desde o upload. Para “assistidos
    na semana” de verdade, guardar snapshots periódicos de `visualizacoes` e rankear pelo delta.
 3. **Canais** — revalidar a lista e remover canais sem uploads; hoje todos respondem.
-4. **Git** — `git init` + primeiro commit (decidir se `catalogo.json` entra no versionamento).
+4. ~~**Git** — `git init` + primeiro commit~~ — feito: repositório publicado em
+   <https://github.com/silotto/matine> com GitHub Pages.
 5. **Validade** — regenerar o catálogo a cada 30 dias (o site avisa quando vence).
+   Sem automação ainda: rodar `node scripts/atualizar-catalogo.js` e commitar o resultado.
+   Opcional: workflow agendado no Actions com a chave em `secrets.YOUTUBE_API_KEY`.
 6. Opcional: renomear `.opencode/command/` para `.opencode/commands/` (plural, recomendado na doc V2).
 
 ## Decisões tomadas
