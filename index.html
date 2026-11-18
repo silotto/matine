@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Matinê: filmes e séries completos e gratuitos do YouTube, reproduzidos no player oficial.">
+  <title>Matinê — filmes e séries gratuitos do YouTube</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0f'/%3E%3Cpath d='M26 30h48v40H26z' fill='none' stroke='%23ffc857' stroke-width='6'/%3E%3Cpath d='M26 42h48M26 58h48M38 30v40M62 30v40' stroke='%23ffc857' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="#/" aria-label="Matinê, página inicial">
+      <svg class="marca__icone" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"
+           fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+        <path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path>
+      </svg>
+      <span class="marca__nome">Matinê</span>
+    </a>
+
+    <form class="busca" id="form-busca" role="search">
+      <label class="sr-only" for="campo-busca">Buscar por título</label>
+      <input id="campo-busca" type="search" placeholder="Buscar por título…"
+             autocomplete="off" spellcheck="false" enterkeyhint="search">
+    </form>
+
+    <div class="filtro">
+      <label for="filtro-ano">Ano</label>
+      <select id="filtro-ano">
+        <option value="todos">Todos</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <p id="aviso-catalogo" class="aviso" role="status" hidden></p>
+
+    <!-- Início: fileiras por categoria -->
+    <section id="pagina-inicio" aria-label="Catálogo">
+      <header class="abertura">
+        <h1 class="abertura__titulo">Filmes completos, de graça, no YouTube</h1>
+        <p class="abertura__texto">
+          Catálogo com títulos longos dos canais oficiais da nossa lista. A reprodução acontece
+          no player do próprio YouTube, com os anúncios e a qualidade que ele oferece.
+        </p>
+        <p class="abertura__resumo" id="abertura-resumo"></p>
+      </header>
+
+      <!-- Carrossel: 4 títulos em maior alta na semana -->
+      <section class="destaques" id="destaques" aria-roledescription="carrossel"
+               aria-label="Em alta esta semana" hidden>
+        <div class="destaques__palco" id="destaques-palco"></div>
+        <div class="destaques__controles">
+          <div class="destaques__pontos" id="destaques-pontos"></div>
+          <button type="button" class="destaques__pausa" id="destaques-pausa"
+                  aria-pressed="false" aria-label="Pausar troca automática de destaques">Pausar</button>
+          <div class="destaques__setas">
+            <button type="button" class="seta" id="destaques-anterior" aria-label="Destaque anterior">‹</button>
+            <button type="button" class="seta" id="destaques-proximo" aria-label="Próximo destaque">›</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="fileiras" id="fileiras"></div>
+
+      <div class="vazio" id="vazio" hidden></div>
+    </section>
+
+    <!-- Página de reprodução -->
+    <section id="pagina-player" class="pagina-player" aria-label="Reprodução" hidden>
+      <a class="voltar" href="#/">← Voltar ao catálogo</a>
+
+      <h1 class="video__titulo" id="video-titulo" tabindex="-1"></h1>
+      <p class="video__meta" id="video-meta"></p>
+
+      <!-- O player oficial preenche esta caixa. Nada é sobreposto a ele. -->
+      <div class="player" id="player-caixa"></div>
+
+      <div class="video__acoes">
+        <a class="botao" id="video-link-youtube" href="#" target="_blank" rel="noopener noreferrer">
+          Assistir no YouTube ↗
+        </a>
+      </div>
+
+      <p class="video__nota">
+        Reprodução pelo player oficial do YouTube. Anúncios, qualidade, legendas e demais
+        controles são definidos pelo próprio YouTube.
+      </p>
+      <p class="video__canal" id="video-canal"></p>
+
+      <div class="fileiras" id="player-relacionados"></div>
+    </section>
+
+    <noscript>
+      <p class="aviso">O Matinê precisa de JavaScript para montar o catálogo.</p>
+    </noscript>
+  </main>
+
+  <footer class="rodape">
+    <p class="rodape__marca">Matinê · catálogo de filmes e séries gratuitos do YouTube</p>
+    <p><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">Termos de Serviço do YouTube</a></p>
+    <p class="rodape__aviso">Projeto independente, sem vínculo com YouTube ou Netflix.</p>
+    <p class="rodape__data" id="data-atualizacao"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

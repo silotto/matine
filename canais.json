@@ -1,0 +1,25 @@
+{
+  "versao": 1,
+  "atualizadoEm": "2026-11-16",
+  "observacao": "Canais de exemplo. Substitua nome, canalId e categoria pelos canais oficiais que deseja catalogar.",
+  "canais": [
+    {
+      "nome": "Cult Cinema Classics",
+      "canalId": "UCycDFnpMeWzaITQSD1dWsOA",
+      "categoria": "Clássicos",
+      "ativo": true
+    },
+    {
+      "nome": "PeeWee Filmes",
+      "canalId": "UC6P6ib1uE0zaWgzyQ61YaZg",
+      "categoria": "Filmes",
+      "ativo": true
+    },
+    {
+      "nome": "Movie Central",
+      "canalId": "UCGBzBkV-MinlBvHBzZawfLQ",
+      "categoria": "Filmes",
+      "ativo": true
+    }
+  ]
+}

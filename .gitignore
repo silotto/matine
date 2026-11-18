@@ -1,0 +1,7 @@
+# Segredos
+.env
+
+# Temporários e sistema
+*.tmp
+.DS_Store
+node_modules/
